@@ -1,0 +1,12 @@
+D:\Univer\ANUL4\PAD\Laborator_1\API_Transaction\bin\Debug\netcoreapp3.1\Transaction_BusinessLayer.dll
+D:\Univer\ANUL4\PAD\Laborator_1\API_Transaction\obj\Debug\netcoreapp3.1\API_Transaction.csprojAssemblyReference.cache
+D:\Univer\ANUL4\PAD\Laborator_1\API_Transaction\obj\Debug\netcoreapp3.1\API_Transaction.AssemblyInfoInputs.cache
+D:\Univer\ANUL4\PAD\Laborator_1\API_Transaction\obj\Debug\netcoreapp3.1\API_Transaction.AssemblyInfo.cs
+D:\Univer\ANUL4\PAD\Laborator_1\API_Transaction\bin\Debug\netcoreapp3.1\API_Transaction.deps.json
+D:\Univer\ANUL4\PAD\Laborator_1\API_Transaction\bin\Debug\netcoreapp3.1\API_Transaction.dll
+D:\Univer\ANUL4\PAD\Laborator_1\API_Transaction\bin\Debug\netcoreapp3.1\API_Transaction.pdb
+D:\Univer\ANUL4\PAD\Laborator_1\API_Transaction\bin\Debug\netcoreapp3.1\Transaction_BusinessLayer.pdb
+D:\Univer\ANUL4\PAD\Laborator_1\API_Transaction\obj\Debug\netcoreapp3.1\API_Transaction.csproj.CoreCompileInputs.cache
+D:\Univer\ANUL4\PAD\Laborator_1\API_Transaction\obj\Debug\netcoreapp3.1\API_Transaction.csproj.CopyComplete
+D:\Univer\ANUL4\PAD\Laborator_1\API_Transaction\obj\Debug\netcoreapp3.1\API_Transaction.dll
+D:\Univer\ANUL4\PAD\Laborator_1\API_Transaction\obj\Debug\netcoreapp3.1\API_Transaction.pdb

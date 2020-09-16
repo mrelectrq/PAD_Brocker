@@ -1,0 +1,4 @@
+D:\Univer\ANUL4\PAD\Laborator_1\TransactionBroker\bin\Debug\netcoreapp3.1\TransactionBroker.exe
+D:\Univer\ANUL4\PAD\Laborator_1\TransactionBroker\obj\Debug\netcoreapp3.1\TransactionBroker.csprojAssemblyReference.cache
+D:\Univer\ANUL4\PAD\Laborator_1\TransactionBroker\obj\Debug\netcoreapp3.1\TransactionBroker.AssemblyInfoInputs.cache
+D:\Univer\ANUL4\PAD\Laborator_1\TransactionBroker\obj\Debug\netcoreapp3.1\TransactionBroker.AssemblyInfo.cs
