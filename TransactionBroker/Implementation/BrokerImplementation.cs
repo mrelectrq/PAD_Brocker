@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TransactionBroker.Storage;
 
 namespace TransactionBroker.Implementation
 {
@@ -9,6 +10,16 @@ namespace TransactionBroker.Implementation
     {
          internal void AddHandler(TransactionProtocol message,ConnectionParam connection)
         {
+            if (string.IsNullOrWhiteSpace(message.Transaction))
+            {
+                SendError(message, connection);
+                return;
+            }else if(string.IsNullOrWhiteSpace(message.Request_id) || string.IsNullOrWhiteSpace(message.Sender_id))
+            {
+                SendError(message, connection);
+                return;
+            }
+            RequestStorage.GetInstance().AddTransaction(message);
 
         }
 
@@ -22,6 +33,9 @@ namespace TransactionBroker.Implementation
 
         }
 
+        internal void SendError(TransactionProtocol message,ConnectionParam connection)
+        {
 
+        }
     }
 }

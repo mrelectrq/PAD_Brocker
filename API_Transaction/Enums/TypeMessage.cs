@@ -8,7 +8,8 @@ namespace API_Transaction.Enums
     {
         give = 1,
         response = 2,
-        add = 3
+        add = 3,
+        error = 4
     }
 
 
