@@ -68,16 +68,19 @@ namespace TransactionBroker
 
                 if (error == SocketError.Success)
                 {
-                    //byte[] incomingData = new byte[msgSize];
-                    //Array.Copy(connectionParam.Context, incomingData, msgSize);
+                    byte[] incomingData = new byte[msgSize];
+                    Array.Copy(connectionParam.Context, incomingData, msgSize);
+
+
                     ApiManager manager = new ApiManager();
+
                     manager.GetRooting().RouteRequests(connectionParam);
+
                     //add API logic
                 }
             }
             catch (Exception e)
             {
-
                 Console.WriteLine("Error while receiving message : " + e.Message);
             }
             finally

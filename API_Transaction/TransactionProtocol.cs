@@ -6,7 +6,6 @@ using System.Text;
 
 namespace API_Transaction
 {
-    [Serializable()]
     public class TransactionProtocol
     {
         public string Request_id { get; set; }
@@ -16,4 +15,8 @@ namespace API_Transaction
         public DateTime Timestamp { get; set; }
                 
     }
+
+
+
+    
 }
