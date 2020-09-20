@@ -10,22 +10,22 @@ namespace TransactionBroker.Storage
 {
     public class RequestStorage
     {
-        private static readonly Lazy<RequestStorage> Storage =
+        private static readonly Lazy<RequestStorage> storage =
             new Lazy<RequestStorage>(() => new RequestStorage());
-        private static ConcurrentQueue<TransactionProtocol> Transactions;
+        private static ConcurrentQueue<TransactionProtocol> transactions;
         private object _lock = new object();
         private static DateTime timestamp = DateTime.Now.AddMinutes(1);
         private RequestStorage()
         {
-            if(Transactions is null)
+            if(transactions is null)
             {
                 GetStorage();
             }
         }
 
-        public RequestStorage GetInstance()
+        public static RequestStorage GetInstance()
         {
-            return Storage.Value;
+            return storage.Value;
         }
 
         public TransactionProtocol GetTransaction()
@@ -34,14 +34,14 @@ namespace TransactionBroker.Storage
             var status = false;
             while(status)
             {
-                status = Transactions.TryDequeue(out transaction);
+                status = transactions.TryDequeue(out transaction);
             }
             return transaction;
         }
 
         public void AddTransaction(TransactionProtocol protocol)
         {
-            Transactions.Enqueue(protocol);
+            transactions.Enqueue(protocol);
             lock (_lock)
             {
                 if (timestamp < DateTime.Now)
@@ -61,7 +61,7 @@ namespace TransactionBroker.Storage
             using (Stream stream = File.Open(path_comb, FileMode.Create))
             {
                 var formater = new BinaryFormatter();
-                formater.Serialize(stream, Transactions);
+                formater.Serialize(stream, transactions);
             }
         }
         private void GetStorage()
@@ -76,12 +76,12 @@ namespace TransactionBroker.Storage
                 List<TransactionProtocol> storage = (List<TransactionProtocol>)formater.Deserialize(stream);
                 if(storage == null)
                 {
-                    Transactions = new ConcurrentQueue<TransactionProtocol>();
+                    transactions = new ConcurrentQueue<TransactionProtocol>();
                 }else
                 {
                     foreach(var transaction in storage)
                     {
-                        Transactions.Enqueue(transaction);
+                        transactions.Enqueue(transaction);
                     }
                 }
             }
