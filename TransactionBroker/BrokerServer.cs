@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using TransactionBroker.Interfaces;
+using TransactionBroker.Storage;
 
 namespace TransactionBroker
 {
@@ -96,7 +97,8 @@ namespace TransactionBroker
                     Console.WriteLine("Deconectarea socketului:" + connectionParam.Address);
                     connectionParam.Socket.Close();
 
-                    // exclude from storage , need??
+                    //Added ConnectionStorage
+                    ConnectionStorage.GetInstance().ExcludeConnection(connectionParam);
                 }
             }
         }
