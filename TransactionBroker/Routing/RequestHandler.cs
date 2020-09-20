@@ -29,6 +29,10 @@ namespace TransactionBroker.Routing
             {
                 ResponseHandler(message, connection);
             }
+            else
+            {
+                ErrorHandler(message, connection);
+            }
 
 
 
