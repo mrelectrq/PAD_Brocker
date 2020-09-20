@@ -49,5 +49,12 @@ namespace TransactionBroker.Storage
                 status = connections.TryRemove(request_id, out discard);
             }
         }
+
+        public ConnectionParam GetConnection(string request_id)
+        {
+            var result = connections.Where(m => m.Key == request_id)
+                .Select(m => m.Value).FirstOrDefault();
+            return result;
+        }
     }
 }
