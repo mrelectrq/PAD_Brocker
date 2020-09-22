@@ -3,6 +3,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 
@@ -61,7 +62,11 @@ namespace TransactionBroker.Storage
             using (Stream stream = File.Open(path_comb, FileMode.Create))
             {
                 var formater = new BinaryFormatter();
-                formater.Serialize(stream, transactions);
+
+                TransactionProtocol[] transact_array = new TransactionProtocol[transactions.Count];
+                transactions.CopyTo(transact_array, 0);
+                var list_transact = transact_array.OfType<TransactionProtocol>().ToList();
+                formater.Serialize(stream, list_transact);
             }
         }
         private void GetStorage()
@@ -70,20 +75,30 @@ namespace TransactionBroker.Storage
             string storage_name = Config.STORAGE_NAME;
             string path_comb = Path.Combine(storage_name, storage_path);
             
-            using (Stream stream = File.Open(path_comb, FileMode.Open))
+            using (Stream stream = File.Open(storage_path, FileMode.Open))
             {
                 var formater = new BinaryFormatter();
-                List<TransactionProtocol> storage = (List<TransactionProtocol>)formater.Deserialize(stream);
-                if(storage == null)
+
+                List<TransactionProtocol> storage; //= (List<TransactionProtocol>)formater.Deserialize(stream);
+                try
                 {
-                    transactions = new ConcurrentQueue<TransactionProtocol>();
-                }else
-                {
-                    foreach(var transaction in storage)
+                    storage = (List<TransactionProtocol>)formater.Deserialize(stream);
+                    foreach (var transaction in storage)
                     {
                         transactions.Enqueue(transaction);
                     }
                 }
+                catch
+                {
+                    transactions = new ConcurrentQueue<TransactionProtocol>();
+                }
+                //if(storage == null)
+                //{
+                //    transactions = new ConcurrentQueue<TransactionProtocol>();
+                //}else
+                //{
+
+                //}
             }
         }
     }

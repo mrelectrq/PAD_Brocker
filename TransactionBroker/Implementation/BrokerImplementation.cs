@@ -64,7 +64,7 @@ namespace TransactionBroker.Implementation
         private byte[] ConvertToByteArray(TransactionProtocol message)
         {
             var transact_format = JsonConvert.SerializeObject(message);
-            var byte_array = Convert.FromBase64String(transact_format);
+            var byte_array = UTF8Encoding.UTF8.GetBytes(transact_format);
             return byte_array;
         }
 

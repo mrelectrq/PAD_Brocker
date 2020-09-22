@@ -6,7 +6,12 @@ namespace TransactionBroker
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+           // Console.WriteLine("Hello World!");
+
+            var broker = new BrokerServer();
+            broker.Start(540);
+
+            Console.ReadKey();
         }
     }
 }

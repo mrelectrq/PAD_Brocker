@@ -13,9 +13,9 @@ namespace TransactionBroker.Routing
     {
         public void RouteRequests(ConnectionParam connection)
         {
-            var request = Convert.ToBase64String(connection.Context);
+            var request = Encoding.UTF8.GetString(connection.Context);
 
-            TransactionProtocol message = (TransactionProtocol)JsonConvert.DeserializeObject(request);
+            TransactionProtocol message = JsonConvert.DeserializeObject<TransactionProtocol>(request);
             
             if(message.Type_message==TypeMessage.add)
             {

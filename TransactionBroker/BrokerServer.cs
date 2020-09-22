@@ -12,20 +12,21 @@ namespace TransactionBroker
     public class BrokerServer
     {
         private Socket _socket;
-        private BrokerServer()
+        public BrokerServer()
         {
             _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
 
 
-        public void Start(string ip, int port)
+        public void Start( int port)
         {
             try
             {
-                var ip_point = new IPEndPoint(IPAddress.Parse(ip), port);
+                var ip_point = new IPEndPoint(IPAddress.Any, port);
                 _socket.Bind(ip_point);
                 _socket.Listen(10);
                 AcceptConnection();
+                Console.WriteLine("Broker has been Started succesefull");
             }
             catch (Exception e)
             {
@@ -45,7 +46,7 @@ namespace TransactionBroker
                 ConnectionParam connection = new ConnectionParam();
                 connection.Socket = _socket.EndAccept(result);
                 connection.Address = connection.Socket.RemoteEndPoint.ToString();
-                connection.Socket.BeginReceive(connection.Context, 0, connection.Address.Length
+                connection.Socket.BeginReceive(connection.Context, 0, connection.Context.Length
                     , 0, ReceiveDataCallback, connection);
             }
             catch (Exception e)
@@ -74,7 +75,7 @@ namespace TransactionBroker
 
 
                     ApiManager manager = new ApiManager();
-
+                    
                     manager.GetRooting().RouteRequests(connectionParam);
 
                     //add API logic

@@ -7,7 +7,7 @@ namespace TransactionBroker
 {
    public class ConnectionParam
     {
-        public const int BUFF_SIZE = 1024;
+        public const int BUFF_SIZE = 5050;
         public Socket Socket { get; set; }
         public string Address { get; set; }
         
