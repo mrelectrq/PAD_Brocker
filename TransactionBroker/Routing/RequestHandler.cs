@@ -9,11 +9,15 @@ using TransactionBroker.Interfaces;
 
 namespace TransactionBroker.Routing
 {
+
     public class RequestHandler : BrokerImplementation, IRouting
     {
+       
         public void RouteRequests(ConnectionParam connection)
         {
-            var request = Encoding.UTF8.GetString(connection.Context);
+
+           
+           var request = Encoding.UTF8.GetString(connection.Context);
 
             TransactionProtocol message = JsonConvert.DeserializeObject<TransactionProtocol>(request);
             

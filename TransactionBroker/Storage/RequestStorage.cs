@@ -33,7 +33,7 @@ namespace TransactionBroker.Storage
         {
             TransactionProtocol transaction = new TransactionProtocol();
             var status = false;
-            while(status)
+            while(!status)
             {
                 status = transactions.TryDequeue(out transaction);
             }
@@ -80,11 +80,13 @@ namespace TransactionBroker.Storage
                 var formater = new BinaryFormatter();
 
                 List<TransactionProtocol> storage; //= (List<TransactionProtocol>)formater.Deserialize(stream);
+                transactions = new ConcurrentQueue<TransactionProtocol>();
                 try
                 {
                     storage = (List<TransactionProtocol>)formater.Deserialize(stream);
                     foreach (var transaction in storage)
                     {
+                        
                         transactions.Enqueue(transaction);
                     }
                 }
