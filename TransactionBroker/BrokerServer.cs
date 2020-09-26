@@ -9,7 +9,7 @@ using TransactionBroker.Storage;
 
 namespace TransactionBroker
 {
-    public class BrokerServer
+    public class BrokerServer 
     {
         private Socket _socket;
         public BrokerServer()
@@ -66,7 +66,8 @@ namespace TransactionBroker
             try
             {
                 SocketError error;
-                int msgSize = connectionParam.Socket.EndReceive(asyncResult, out error);
+                Socket sender = connectionParam.Socket;
+                int msgSize = sender.EndReceive(asyncResult, out error);
 
                 if (error == SocketError.Success)
                 {
@@ -90,8 +91,8 @@ namespace TransactionBroker
                 var status = IsConnected(connectionParam.Socket);
                 if (status)
                 {
-                    connectionParam.Socket.BeginReceive(connectionParam.Context, 0, connectionParam.Address.Length
-                         , 0, ReceiveDataCallback, connectionParam);
+                    connectionParam.Socket.BeginReceive(connectionParam.Context, 0, connectionParam.Context.Length
+                         , SocketFlags.None, ReceiveDataCallback, connectionParam);
                 }
                 else
                 {

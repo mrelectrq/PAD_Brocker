@@ -26,7 +26,7 @@ namespace TransactionBroker.Implementation
         internal void ResponseHandler(TransactionProtocol message, ConnectionParam connection)
         {
             if (string.IsNullOrWhiteSpace(message.Request_id) || string.IsNullOrWhiteSpace(message.Sender_id)
-                || string.IsNullOrWhiteSpace(message.Transaction))
+                || string.IsNullOrWhiteSpace(message.Message))
             {
                 ErrorHandler(message, connection);
                 return;

@@ -10,8 +10,8 @@ D:\Univer\ANUL4\PAD\Laborator_1\TransactionBroker\bin\Debug\netcoreapp3.1\Transa
 D:\Univer\ANUL4\PAD\Laborator_1\TransactionBroker\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Univer\ANUL4\PAD\Laborator_1\TransactionBroker\bin\Debug\netcoreapp3.1\API_Transaction.dll
 D:\Univer\ANUL4\PAD\Laborator_1\TransactionBroker\bin\Debug\netcoreapp3.1\API_Transaction.pdb
-D:\Univer\ANUL4\PAD\Laborator_1\TransactionBroker\obj\Debug\netcoreapp3.1\TransactionBroker.csproj.CoreCompileInputs.cache
 D:\Univer\ANUL4\PAD\Laborator_1\TransactionBroker\obj\Debug\netcoreapp3.1\TransactionBroker.csproj.CopyComplete
 D:\Univer\ANUL4\PAD\Laborator_1\TransactionBroker\obj\Debug\netcoreapp3.1\TransactionBroker.dll
 D:\Univer\ANUL4\PAD\Laborator_1\TransactionBroker\obj\Debug\netcoreapp3.1\TransactionBroker.pdb
 D:\Univer\ANUL4\PAD\Laborator_1\TransactionBroker\obj\Debug\netcoreapp3.1\TransactionBroker.genruntimeconfig.cache
+D:\Univer\ANUL4\PAD\Laborator_1\TransactionBroker\obj\Debug\netcoreapp3.1\TransactionBroker.csproj.CoreCompileInputs.cache

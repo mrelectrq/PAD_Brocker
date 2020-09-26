@@ -21,6 +21,7 @@ namespace TransactionBroker.Storage
             if(transactions is null)
             {
                 GetStorage();
+               
             }
         }
 
