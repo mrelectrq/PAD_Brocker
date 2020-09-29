@@ -44,7 +44,7 @@ namespace TransactionBroker.Storage
         {
             ConnectionParam discard;
             bool status = false;
-            while(status)
+            while(!status)
             {
                 status = connections.TryRemove(request_id, out discard);
             }

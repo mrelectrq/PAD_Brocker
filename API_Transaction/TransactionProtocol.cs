@@ -16,8 +16,4 @@ namespace API_Transaction
         public DateTime Timestamp { get; set; }
         public string Message { get; set; }
     }
-
-
-
-    
 }
