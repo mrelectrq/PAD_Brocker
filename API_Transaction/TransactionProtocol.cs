@@ -15,5 +15,6 @@ namespace API_Transaction
         public string Transaction { get; set; }
         public DateTime Timestamp { get; set; }
         public string Message { get; set; }
+        public bool isTestament { get; set; }
     }
 }

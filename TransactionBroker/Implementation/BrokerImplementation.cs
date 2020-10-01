@@ -39,6 +39,10 @@ namespace TransactionBroker.Implementation
             }
             var message_buffer = ConvertToByteArray(message);
             sender_connection.Socket.Send(message_buffer);
+            if (message.isTestament == true)
+            {
+                ConnectionStorage.GetInstance().ExcludeConnection(sender_connection);
+            }
 
         }
 
